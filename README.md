@@ -3,7 +3,7 @@ EXAMPLE CONFIG
 config.yml
 ```yaml
 # This is the config for BaseItem
-item: 276:0:1
+item: "diamond_sword:1"
 name: "&aExample Item"
 lore:
 - "&7This is an example item"
@@ -15,9 +15,9 @@ enchantments:
 
 ```php
 
-$data = yaml_parse_file("config.yml");
+$data = new \pocketmine\utils\Config("config.yml", \pocketmine\utils\Config::YAML);
 
-$item = \phuongaz\baseitem\ItemUtils::fromArray($data["item"]);
+$item = \phuongaz\baseitem\ItemUtils::fromArray($data->getAll());
 
 $player->getInventory()->addItem($item);
 
